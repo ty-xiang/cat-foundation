@@ -1,1 +1,1 @@
-cat-foundation-demo
+A database for the nz cat foundation

@@ -8,36 +8,38 @@ import javax.persistence.Id;
 @Entity
 public class Cat {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cat_seq")
-    private long catId;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "cat_id_seq")
+    private long id;
 
     public enum CatStatus {
         ADOPTED,
         AT_SANCTUARY_ADOPTABLE,
         AT_SANCTUARY_NOT_ADOPTABLE,
-        DECEASED
+        DECEASED;
     }
 
     private String name;
     private int age;
     private String gender;
     private String description;
-    private CatStatus catStatus;
+    private CatStatus status;
 
     public Cat() {
 
     }
 
-    public Cat(String name, int age, String gender, String description, CatStatus catStatus) {
+    public Cat(String name, int age, String gender, String description, CatStatus status) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.description = description;
-        this.catStatus = catStatus;
+        this.status = status;
+
+
     }
 
-    public long getCatId() {
-        return catId;
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -56,12 +58,12 @@ public class Cat {
         return description;
     }
 
-    public CatStatus getCatStatus() {
-        return catStatus;
+    public CatStatus getStatus() {
+        return status;
     }
 
-    public void setCatId(long catId) {
-        this.catId = catId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -80,7 +82,7 @@ public class Cat {
         this.description = description;
     }
 
-    public void setCatStatus(CatStatus catStatus) {
-        this.catStatus = catStatus;
+    public void setStatus(CatStatus status) {
+        this.status = status;
     }
 }

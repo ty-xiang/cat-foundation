@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: header"></head>
+<body>
+<nav th:replace="layout :: topnavbar"></nav>
+<div class="container">
+    <h3>Cats</h3>
+    <a th:href="@{/cat/new}" class="btn btn-primary btn-sm mb-3">Add a cat</a>
+
+    <div th:each="cat : ${cats}">
+        <div th:text="${cat.name}"></div>
+        <div th:text="${cat.description}"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

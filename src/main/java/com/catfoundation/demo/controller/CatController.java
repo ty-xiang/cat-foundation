@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/cat")
 public class CatController {
@@ -28,5 +30,12 @@ public class CatController {
     public String addCat(Cat cat, Model model) {
         catService.save(cat);
         return "redirect:/cat/new";
+    }
+
+    @GetMapping("/all")
+    public String listAllCats(Model model) {
+        List<Cat> cats = catService.getAll();
+        model.addAttribute("cats", cats);
+        return "list-cats";
     }
 }
